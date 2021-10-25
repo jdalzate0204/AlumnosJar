@@ -9,5 +9,5 @@ import javax.ejb.Local;
  */
 @Local
 public interface IAlumnoRepo extends ICrud<Alumno, Integer> {
-
+    
 }

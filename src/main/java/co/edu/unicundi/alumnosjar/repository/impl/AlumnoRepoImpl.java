@@ -3,6 +3,7 @@ package co.edu.unicundi.alumnosjar.repository.impl;
 import co.edu.unicundi.alumnosjar.entity.Alumno;
 import co.edu.unicundi.alumnosjar.repository.IAlumnoRepo;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -10,6 +11,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author acer
  */
+@Stateless
 public class AlumnoRepoImpl implements IAlumnoRepo{
     
     @PersistenceContext(unitName = "conexionAlumnos")
@@ -27,7 +29,8 @@ public class AlumnoRepoImpl implements IAlumnoRepo{
 
     @Override
     public Alumno listarPorId(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Alumno alumno = em.find(Alumno.class, id);
+        return alumno;
     }
 
     @Override

@@ -6,6 +6,7 @@ import co.edu.unicundi.alumnosjar.service.IAlumnoService;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.ws.rs.NotFoundException;
 
 /**
  *
@@ -14,8 +15,8 @@ import javax.ejb.Stateless;
 @Stateless
 public class AlumnoServiceImpl implements IAlumnoService{
 
-    /*@EJB
-    public IAlumnoRepo repo;*/
+    @EJB
+    private IAlumnoRepo repo;
 
     @Override
     public void guardar(Alumno obj) {
@@ -29,7 +30,11 @@ public class AlumnoServiceImpl implements IAlumnoService{
 
     @Override
     public Alumno listarPorId(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Alumno alumno = repo.listarPorId(id);
+        if (alumno != null)
+            return alumno;
+        else
+            throw new NotFoundException("Alumno no encontrado");
     }
 
     @Override
