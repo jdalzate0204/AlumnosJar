@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
  */
 public class AlumnoRepoImpl implements IAlumnoRepo{
     
-    @PersistenceContext(unitName = "conexionPostgresql")
+    @PersistenceContext(unitName = "conexionAlumnos")
     private EntityManager em;
 
     @Override
