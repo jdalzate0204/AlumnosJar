@@ -19,7 +19,7 @@ public class AlumnoRepoImpl implements IAlumnoRepo{
 
     @Override
     public void guardar(Alumno obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.em.persist(obj);
     }
 
     @Override

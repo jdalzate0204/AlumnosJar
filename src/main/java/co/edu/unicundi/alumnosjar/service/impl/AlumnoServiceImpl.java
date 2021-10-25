@@ -16,11 +16,15 @@ import javax.ws.rs.NotFoundException;
 public class AlumnoServiceImpl implements IAlumnoService{
 
     @EJB
+<<<<<<< HEAD
     private IAlumnoRepo repo;
+=======
+    public IAlumnoRepo repo;
+>>>>>>> 7f51d3d2667a67d776c001f3c505e80c6920fb92
 
     @Override
     public void guardar(Alumno obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.repo.guardar(obj);
     }
 
     @Override
