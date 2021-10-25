@@ -14,12 +14,12 @@ import javax.ejb.Stateless;
 @Stateless
 public class AlumnoServiceImpl implements IAlumnoService{
 
-    /*@EJB
-    public IAlumnoRepo repo;*/
+    @EJB
+    public IAlumnoRepo repo;
 
     @Override
     public void guardar(Alumno obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.repo.guardar(obj);
     }
 
     @Override

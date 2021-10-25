@@ -7,7 +7,7 @@ import javax.ejb.Local;
  *
  * @author acer
  */
-@Local
+
 public interface IAlumnoRepo extends ICrud<Alumno, Integer> {
 
 }
