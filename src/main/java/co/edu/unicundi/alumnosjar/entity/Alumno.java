@@ -126,11 +126,7 @@ public class Alumno implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
     }
     
-<<<<<<< HEAD
-    /**
-=======
    /**
->>>>>>> 68bb1aa2747bceede7147d77921ec4fe7d4c69dd
      * Metodo que envia la intancia para validar si tiene alguna violación 
      * @return 
      */

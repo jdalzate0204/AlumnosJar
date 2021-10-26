@@ -5,13 +5,9 @@ import co.edu.unicundi.alumnosjar.repository.IAlumnoRepo;
 import co.edu.unicundi.alumnosjar.service.IAlumnoService;
 import java.util.HashMap;
 import java.util.List;
-<<<<<<< HEAD
-import javax.ejb.*;
-=======
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.validation.ConstraintViolation;
->>>>>>> 68bb1aa2747bceede7147d77921ec4fe7d4c69dd
 import javax.ws.rs.NotFoundException;
 
 /**
@@ -25,10 +21,6 @@ public class AlumnoServiceImpl implements IAlumnoService{
     private IAlumnoRepo repo;
 
     @Override
-<<<<<<< HEAD
-    public void guardar(Alumno obj) {
-        this.repo.guardar(obj);
-=======
     public void guardar(Alumno obj) throws CloneNotSupportedException {
    
       try{
@@ -52,7 +44,6 @@ public class AlumnoServiceImpl implements IAlumnoService{
             } catch (IllegalArgumentException e) {
                 throw e;
        }
->>>>>>> 68bb1aa2747bceede7147d77921ec4fe7d4c69dd
     }
 
     @Override
