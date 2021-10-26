@@ -17,9 +17,9 @@ import javax.validation.constraints.*;
 @Table (name = "alumno")
 
 //Consultas JPQL (No se hace la consulta sobre la base de datos, sino en codigo java)
-/*@NamedQueries({
+@NamedQueries({
     @NamedQuery(name = "Alumno.ListarTodos", query = "SELECT a FROM Alumno a")    
-})*/
+})
 
 public class Alumno implements Serializable {
     
@@ -126,7 +126,11 @@ public class Alumno implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
     }
     
+<<<<<<< HEAD
     /**
+=======
+   /**
+>>>>>>> 68bb1aa2747bceede7147d77921ec4fe7d4c69dd
      * Metodo que envia la intancia para validar si tiene alguna violación 
      * @return 
      */
