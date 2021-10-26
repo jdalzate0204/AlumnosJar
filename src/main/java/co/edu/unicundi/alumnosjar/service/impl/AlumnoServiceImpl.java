@@ -3,10 +3,8 @@ package co.edu.unicundi.alumnosjar.service.impl;
 import co.edu.unicundi.alumnosjar.entity.Alumno;
 import co.edu.unicundi.alumnosjar.repository.IAlumnoRepo;
 import co.edu.unicundi.alumnosjar.service.IAlumnoService;
-import java.util.HashMap;
-import java.util.List;
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
+import java.util.*;
+import javax.ejb.*;
 import javax.validation.ConstraintViolation;
 import javax.ws.rs.NotFoundException;
 
@@ -20,13 +18,15 @@ public class AlumnoServiceImpl implements IAlumnoService{
     @EJB
     private IAlumnoRepo repo;
 
+    List<Alumno> list;
+    Alumno alumno;
+    HashMap<String, String> errores = new HashMap();
+    
     @Override
     public void guardar(Alumno obj) throws CloneNotSupportedException {
-        List<Alumno> list = repo.listarTodos();
-        Alumno alumno = null;
+        list = repo.listarTodos();
+        alumno = null;
    
-        HashMap<String, String> errores = new HashMap();
-
         for (ConstraintViolation error: obj.validar())
             errores.put(error.getPropertyPath().toString(), error.getMessage());
 
@@ -47,12 +47,12 @@ public class AlumnoServiceImpl implements IAlumnoService{
 
     @Override
     public List<Alumno> listar() {
-       return repo.listarTodos();
+        return repo.listarTodos();
     }
 
     @Override
     public Alumno listarPorId(Integer id) {
-        Alumno alumno = repo.listarPorId(id);
+        alumno = repo.listarPorId(id);
         if (alumno != null)
             return alumno;
         else
@@ -61,10 +61,8 @@ public class AlumnoServiceImpl implements IAlumnoService{
 
     @Override
     public void editar(Alumno obj) throws CloneNotSupportedException{
-        List<Alumno> list = repo.listarTodos();
-        Alumno alumno = null;
-        
-        HashMap<String, String> errores = new HashMap();
+        list = repo.listarTodos();
+        alumno = null;
 
         for (ConstraintViolation error: obj.validar())
             errores.put(error.getPropertyPath().toString(), error.getMessage());

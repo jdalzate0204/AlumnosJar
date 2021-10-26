@@ -1,8 +1,6 @@
 package co.edu.unicundi.alumnosjar.repository;
 
 import co.edu.unicundi.alumnosjar.entity.Alumno;
-import java.util.List;
-import javax.ejb.Local;
 
 /**
  *

@@ -3,10 +3,7 @@ package co.edu.unicundi.alumnosjar.entity;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.*;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+import javax.validation.*;
 import javax.validation.constraints.*;
 
 /**
