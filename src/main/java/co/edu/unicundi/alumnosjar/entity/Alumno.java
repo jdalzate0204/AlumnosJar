@@ -1,7 +1,12 @@
 package co.edu.unicundi.alumnosjar.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 import javax.persistence.*;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 import javax.validation.constraints.*;
 
 /**
@@ -119,5 +124,15 @@ public class Alumno implements Serializable {
 
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+    
+    /**
+     * Metodo que envia la intancia para validar si tiene alguna violación 
+     * @return 
+     */
+    public Set<ConstraintViolation<Alumno>> validar(){
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        return validator.validate(this);
     }
 }

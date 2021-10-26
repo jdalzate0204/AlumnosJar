@@ -4,8 +4,7 @@ import co.edu.unicundi.alumnosjar.entity.Alumno;
 import co.edu.unicundi.alumnosjar.repository.IAlumnoRepo;
 import co.edu.unicundi.alumnosjar.service.IAlumnoService;
 import java.util.List;
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
+import javax.ejb.*;
 import javax.ws.rs.NotFoundException;
 
 /**
@@ -14,13 +13,13 @@ import javax.ws.rs.NotFoundException;
  */
 @Stateless
 public class AlumnoServiceImpl implements IAlumnoService{
-
+    
     @EJB
     private IAlumnoRepo repo;
 
     @Override
     public void guardar(Alumno obj) {
-       this.repo.guardar(obj);
+        this.repo.guardar(obj);
     }
 
     @Override
@@ -38,8 +37,8 @@ public class AlumnoServiceImpl implements IAlumnoService{
     }
 
     @Override
-    public void editar(Alumno obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void editar(Alumno obj) throws CloneNotSupportedException{
+        this.repo.editar(obj);
     }
 
     @Override
