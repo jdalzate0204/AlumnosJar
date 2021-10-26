@@ -62,14 +62,31 @@ public class AlumnoServiceImpl implements IAlumnoService{
 
     @Override
     public void editar(Alumno obj) throws CloneNotSupportedException{
-        this.repo.editar(obj);
+        List<Alumno> list = repo.listarTodos();
+        Alumno alumno = null;
+        
+        HashMap<String, String> errores = new HashMap();
+
+        for (ConstraintViolation error: obj.validar())
+            errores.put(error.getPropertyPath().toString(), error.getMessage());
+
+        if (errores.size() > 0)
+            throw new IllegalArgumentException(errores.toString());
+        else {
+            for (Alumno a: list){
+                if(obj.getCedula().equals(a.getCedula()))
+                    alumno = a;
+            }
+            
+            if (alumno != null)
+                throw new CloneNotSupportedException("La cedula ingresada ya esta registrada con otro usuario");
+            else
+                this.repo.editar(obj);
+        }
     }
 
     @Override
     public void eliminar(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-   
-   
 }

@@ -29,11 +29,13 @@ public class Alumno implements Serializable {
     
     @NotNull(message = "nombre es obligatorio")
     @Size(min = 3, max = 30, message = "nombre debe estar entre 3 y 30 caracteres")
+    @Pattern(regexp = "^[a-zA-Z_]+( [a-zA-Z_]+)*$", message = "¡Solo se admiten letras!")
     @Column(name = "nombre", nullable = false, length = 30)
     private String nombre;
     
     @NotNull(message = "apellido es obligatorio")
     @Size(min = 3, max = 30, message = "apellido debe estar entre 3 y 30 caracteres")
+    @Pattern(regexp = "^[a-zA-Z_]+( [a-zA-Z_]+)*$", message = "¡Solo se admiten letras!")
     @Column(name = "apellido", nullable = false, length = 30)
     private String apellido;
     
@@ -44,6 +46,7 @@ public class Alumno implements Serializable {
     
     @NotNull(message = "cedula es obligatorio")
     @Size(min = 7, max = 10, message = "cedula debe estar entre 7 y 10 caracteres")
+    @Pattern(regexp = "^\\d+$", message = "¡Solo se admiten numeros!")
     @Column(name = "cedula", nullable = false, length = 10)
     private String cedula;
     
