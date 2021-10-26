@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -24,8 +25,9 @@ public class AlumnoRepoImpl implements IAlumnoRepo{
 
     @Override
     public List<Alumno> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        TypedQuery<Alumno> query = em.createNamedQuery("Alumno.ListarTodos", Alumno.class);
+        return query.getResultList(); 
+    } 
 
     @Override
     public Alumno listarPorId(Integer id) {
@@ -42,4 +44,13 @@ public class AlumnoRepoImpl implements IAlumnoRepo{
     public void eliminar(Alumno obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Alumno ListAlumno(String cedula) {
+        Alumno alumno = em.find(Alumno.class,cedula );
+        return alumno;
+    }
+    
+ 
+    
 }
