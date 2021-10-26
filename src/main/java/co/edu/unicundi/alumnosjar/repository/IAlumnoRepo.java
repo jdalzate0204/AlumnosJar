@@ -10,5 +10,5 @@ import javax.ejb.Local;
  */
 
 public interface IAlumnoRepo extends ICrud<Alumno, Integer> {
-    public Alumno ListAlumno(String cedula);
+    
 }
