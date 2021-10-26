@@ -22,28 +22,27 @@ public class AlumnoServiceImpl implements IAlumnoService{
 
     @Override
     public void guardar(Alumno obj) throws CloneNotSupportedException {
+        List<Alumno> list = repo.listarTodos();
+        Alumno alumno = null;
    
-      try{
-         HashMap<String, String> errores = new HashMap();
+        HashMap<String, String> errores = new HashMap();
 
-         for (ConstraintViolation error: obj.validar())
-             errores.put(error.getPropertyPath().toString(), error.getMessage());
+        for (ConstraintViolation error: obj.validar())
+            errores.put(error.getPropertyPath().toString(), error.getMessage());
 
-         if (errores.size() > 0)
-             throw new IllegalArgumentException(errores.toString());
-         else{
-                 Alumno alumno=repo.ListAlumno(obj.getCedula());
-          
-                if(obj.getCedula().equals(alumno.getCedula())){
-                       this.repo.guardar(obj);
-                }else
-                   throw new CloneNotSupportedException("Cedula ya registrada"); 
-         } 
-       } catch (CloneNotSupportedException e) {
-                throw e;
-            } catch (IllegalArgumentException e) {
-                throw e;
-       }
+        if (errores.size() > 0)
+            throw new IllegalArgumentException(errores.toString());
+        else {
+            for (Alumno a: list){
+                if(obj.getCedula().equals(a.getCedula()))
+                    alumno = a;
+            }
+            
+            if (alumno != null)
+                throw new CloneNotSupportedException("La cedula ingresada ya esta registrada con otro usuario");
+            else
+                this.repo.guardar(obj);
+        }
     }
 
     @Override
@@ -82,7 +81,7 @@ public class AlumnoServiceImpl implements IAlumnoService{
                 throw new CloneNotSupportedException("La cedula ingresada ya esta registrada con otro usuario");
             else
                 this.repo.editar(obj);
-        }
+            }
     }
 
     @Override
