@@ -60,7 +60,7 @@ public class AlumnoServiceImpl implements IAlumnoService{
     }
 
     @Override
-    public void editar(Alumno obj) throws CloneNotSupportedException{
+    public void editar(Alumno obj) throws CloneNotSupportedException {
         list = repo.listarTodos();
         alumno = null;
 
@@ -75,10 +75,10 @@ public class AlumnoServiceImpl implements IAlumnoService{
                     alumno = a;
             }
             
-            if (alumno != null)
-                throw new CloneNotSupportedException("La cedula ingresada ya esta registrada con otro usuario");
-            else
+            if ((alumno == null) || ((alumno.getId() == obj.getId()) && (alumno.getCedula().equals(obj.getCedula()))))
                 this.repo.editar(obj);
+            else
+                throw new CloneNotSupportedException("La cedula ingresada ya esta registrada con otro usuario");
             }
     }
 

@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 
 //Consultas JPQL (No se hace la consulta sobre la base de datos, sino en codigo java)
 @NamedQueries({
-    @NamedQuery(name = "Alumno.ListarTodos", query = "SELECT a FROM Alumno a")    
+    @NamedQuery(name = "Alumno.ListarTodos", query = "SELECT a FROM Alumno a")
 })
 
 public class Alumno implements Serializable {
