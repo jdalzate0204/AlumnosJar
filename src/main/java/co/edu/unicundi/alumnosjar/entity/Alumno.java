@@ -58,14 +58,15 @@ public class Alumno implements Serializable {
     private String correo;
     
     @NotNull (message = "fechaNacimiento es obligatorio")
-    @Column(name = "fecha_nacimiento", nullable = true)
+    @Pattern (regexp = "^(([1-9])|([0][1-9])|([1-2][0-9])|([3][0-1]))\\-(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre|Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre)\\-\\d{4}$", 
+            message = "¡Formato de fecha no valido, ingrese el formato dd-MMMM-aaaa!")
+    @Column(name = "fecha_nacimiento", nullable = false)
     private String fechaNacimiento;
 
     public Alumno() {
     }
 
-    public Alumno(Integer id, String nombre, String apellido, Integer edad, String cedula, String correo, String fechaNacimiento) {
-        this.id = id;
+    public Alumno(String nombre, String apellido, Integer edad, String cedula, String correo, String fechaNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;

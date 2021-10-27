@@ -26,6 +26,7 @@ public class AlumnoServiceImpl implements IAlumnoService{
     public void guardar(Alumno obj) throws CloneNotSupportedException {
         list = repo.listarTodos();
         alumno = null;
+        
    
         for (ConstraintViolation error: obj.validar())
             errores.put(error.getPropertyPath().toString(), error.getMessage());
@@ -40,7 +41,7 @@ public class AlumnoServiceImpl implements IAlumnoService{
             
             if (alumno != null)
                 throw new CloneNotSupportedException("La cedula ingresada ya esta registrada con otro usuario");
-            else
+            else 
                 this.repo.guardar(obj);
         }
     }
