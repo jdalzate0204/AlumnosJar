@@ -1,8 +1,10 @@
 package co.edu.unicundi.alumnosjar.service;
-
+import org.codehaus.jettison.json.JSONException;
 import co.edu.unicundi.alumnosjar.entity.Alumno;
 import java.util.List;
 import javax.ejb.Local;
+import javax.json.JsonException;
+
 
 /**
  *

@@ -24,6 +24,7 @@ public class AlumnoServiceImpl implements IAlumnoService{
     
     @Override
     public void guardar(Alumno obj) throws CloneNotSupportedException {
+      
         list = repo.listarTodos();
         alumno = null;
         
@@ -42,7 +43,7 @@ public class AlumnoServiceImpl implements IAlumnoService{
                 throw new CloneNotSupportedException("La cedula ingresada ya esta registrada con otro usuario");
             else 
                 this.repo.guardar(obj);
-        }
+        }  
     }
 
     @Override
