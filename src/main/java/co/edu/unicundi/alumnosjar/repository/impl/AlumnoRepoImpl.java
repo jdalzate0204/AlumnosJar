@@ -45,6 +45,8 @@ public class AlumnoRepoImpl implements IAlumnoRepo{
 
     @Override
     public void eliminarNativo(Integer id) {
-        
+        Query eliminar = em.createNamedQuery("Alumno.EliminarNativo");
+        eliminar.setParameter(1, id);
+        eliminar.executeUpdate();
     }
 }

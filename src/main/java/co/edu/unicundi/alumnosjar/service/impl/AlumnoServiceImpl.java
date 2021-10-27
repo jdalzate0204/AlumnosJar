@@ -27,7 +27,6 @@ public class AlumnoServiceImpl implements IAlumnoService{
         list = repo.listarTodos();
         alumno = null;
         
-   
         for (ConstraintViolation error: obj.validar())
             errores.put(error.getPropertyPath().toString(), error.getMessage());
 
@@ -90,7 +89,7 @@ public class AlumnoServiceImpl implements IAlumnoService{
     }
 
     @Override
-    public void eliminarNativo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void eliminarNativo(Integer id) {
+        this.repo.eliminarNativo(id);
     }
 } 

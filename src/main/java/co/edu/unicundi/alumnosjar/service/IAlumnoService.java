@@ -15,5 +15,5 @@ public interface IAlumnoService  {
     public Alumno listarPorId(Integer id);
     public void editar(Alumno obj) throws CloneNotSupportedException;
     public void eliminar(Integer id);
-    public void eliminarNativo();
+    public void eliminarNativo(Integer id);
 }
