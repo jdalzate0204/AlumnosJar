@@ -18,6 +18,10 @@ import javax.validation.constraints.*;
     @NamedQuery(name = "Alumno.ListarTodos", query = "SELECT a FROM Alumno a")
 })
 
+@NamedNativeQueries({
+    @NamedNativeQuery(name = "Alumno.EliminarNativo", query = "DELETE FROM alumno WHERE (SELECT count(id) FROM alumno where id = ?) = 1")
+})
+
 public class Alumno implements Serializable {
     
     @Id //LLave primaria

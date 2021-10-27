@@ -44,7 +44,7 @@ public class AlumnoRepoImpl implements IAlumnoRepo{
     }    
 
     @Override
-    public void eliminar2(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void eliminarNativo(Integer id) {
+        
     }
 }
