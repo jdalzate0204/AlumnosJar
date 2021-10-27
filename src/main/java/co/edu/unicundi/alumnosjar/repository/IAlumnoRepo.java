@@ -8,5 +8,5 @@ import co.edu.unicundi.alumnosjar.entity.Alumno;
  */
 
 public interface IAlumnoRepo extends ICrud<Alumno, Integer> {
-    
+      public void eliminar2(Integer id);
 }
