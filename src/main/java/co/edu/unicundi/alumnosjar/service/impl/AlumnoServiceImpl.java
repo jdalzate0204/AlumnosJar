@@ -91,6 +91,12 @@ public class AlumnoServiceImpl implements IAlumnoService{
 
     @Override
     public void eliminarNativo(Integer id) {
-        this.repo.eliminarNativo(id);
+        int respuesta=this.repo.validarExistencia(id);
+        System.out.println(respuesta);
+        if(respuesta==1){
+           this.repo.eliminarNativo(id);  
+        }else
+            throw new NotFoundException("Alumno no encontrado");
+       
     }
 } 

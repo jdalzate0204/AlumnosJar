@@ -17,10 +17,13 @@ import javax.validation.constraints.*;
 @NamedQueries({
     @NamedQuery(name = "Alumno.ListarTodos", query = "SELECT a FROM Alumno a")
 })
-
 @NamedNativeQueries({
-    @NamedNativeQuery(name = "Alumno.EliminarNativo", query = "DELETE FROM alumno WHERE id = ?1")
+    @NamedNativeQuery(name = "Alumno.EliminarID", query = "DELETE FROM public.alumno WHERE id = ?1"),
+    @NamedNativeQuery(name = "Alumno.ContarId", query = "SELECT count (id) FROM public.alumno WHERE id = ?1") 
 })
+//@NamedNativeQueries({
+//    @NamedNativeQuery(name = "Alumno.EliminarNativo", query = "DELETE FROM alumno WHERE id = ?1")
+//})
 
 public class Alumno implements Serializable {
     

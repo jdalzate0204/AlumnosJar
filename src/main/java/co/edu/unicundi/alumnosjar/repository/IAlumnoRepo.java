@@ -9,4 +9,5 @@ import co.edu.unicundi.alumnosjar.entity.Alumno;
 
 public interface IAlumnoRepo extends ICrud<Alumno, Integer> {
       public void eliminarNativo(Integer id);
+      public int validarExistencia(Integer id);
 }
